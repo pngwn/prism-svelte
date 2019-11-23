@@ -1,0 +1,30 @@
+{
+	"name": "prism-svelte",
+	"version": "0.0.1",
+	"description": "Svelte language extension for prismjs",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/pngwn/prism-svelte.git"
+	},
+	"keywords": [
+		"svelte",
+		"prism",
+		"highlight",
+		"syntax"
+	],
+	"author": "",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/pngwn/prism-svelte/issues"
+	},
+	"homepage": "https://github.com/pngwn/prism-svelte#readme",
+	"devDependencies": {
+		"prettier": "^1.19.1",
+		"prettier-eslint": "^9.0.0",
+		"eslint": "^6.6.0"
+	}
+}
