@@ -8,7 +8,7 @@ Prism.languages.svelte = Prism.languages.extend('markup', {
 			keyword: [new RegExp('[#:/]' + blocks), /as/, /then/],
 			js_expr: {
 				pattern: /[\s\S]+/,
-				inside: Prism.languages['typescript'],
+				inside: Prism.languages['javascript'],
 			},
 		},
 	},
@@ -39,7 +39,7 @@ Prism.languages.svelte = Prism.languages.extend('markup', {
 							punctuation: /{|}/,
 							'js-expr': {
 								pattern: /[\s\S]+/,
-								inside: Prism.languages['typescript'],
+								inside: Prism.languages['javascript'],
 							},
 						},
 					},
@@ -117,4 +117,4 @@ Object.defineProperty(Prism.languages.svelte.tag, 'addInlined', {
 });
 
 Prism.languages.svelte.tag.addInlined('style', 'css');
-Prism.languages.svelte.tag.addInlined('script', 'typescript');
+Prism.languages.svelte.tag.addInlined('script', 'javascript');
