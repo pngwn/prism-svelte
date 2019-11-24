@@ -24,7 +24,7 @@ Prism.languages.svelte = Prism.languages.extend('markup', {
 				},
 			],
 			keyword: /#each|as/,
-			puntuation: /{|}/,
+			punctuation: /{|}/,
 		},
 	},
 	block: {
