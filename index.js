@@ -2,12 +2,16 @@ const blocks = '(if|else if|await|then|catch|each)';
 
 Prism.languages.svelte = Prism.languages.extend('markup', {
 	block: {
-		pattern: new RegExp('{[#:/]' + blocks + '(.*)}(?=[ \t\n])'),
+		pattern: new RegExp(
+			'{[#:/]' +
+				blocks +
+				'(?:(?:\\{(?:(?:\\{(?:[^{}])*\\})|(?:[^{}]))*\\})|(?:[^{}]))*}'
+		),
 		inside: {
-			punctuation: /{|}/,
+			punctuation: /^{|}$/,
 			keyword: [new RegExp('[#:/]' + blocks), /as/, /then/],
-			js_expr: {
-				pattern: /[\s\S]+/,
+			'language-javascript': {
+				pattern: /[\s\S]*/,
 				inside: Prism.languages['javascript'],
 			},
 		},
@@ -23,18 +27,12 @@ Prism.languages.svelte = Prism.languages.extend('markup', {
 					namespace: /^[^\s>\/:]+:/,
 				},
 			},
-			prop: {
-				pattern: /{[\s\S]*?}/,
-				inside: {
-					punctuation: /{|}/,
-					'js-expr': {
-						pattern: /[\s\S]*/,
-						inside: Prism.languages['javascript'],
-					},
-				},
+			'language-javascript': {
+				pattern: /\{(?:(?:\{(?:(?:\{(?:[^{}])*\})|(?:[^{}]))*\})|(?:[^{}]))*\}/,
+				inside: Prism.languages['javascript'],
 			},
 			'attr-value': {
-				pattern: /=\s*(?:"[^"]*"|'[^']*'|{[^"]*?}|[^\s'">=]+)/i,
+				pattern: /=\s*(?:"[^"]*"|'[^']*'|[^\s'">=]+)/i,
 				inside: {
 					punctuation: [
 						/^=/,
@@ -43,15 +41,9 @@ Prism.languages.svelte = Prism.languages.extend('markup', {
 							lookbehind: true,
 						},
 					],
-					'sv-expr': {
+					'language-javascript': {
 						pattern: /{[\s\S]+}/,
-						inside: {
-							punctuation: /{|}/,
-							'js-expr': {
-								pattern: /[\s\S]+/,
-								inside: Prism.languages['javascript'],
-							},
-						},
+						inside: Prism.languages['javascript'],
 					},
 				},
 			},
@@ -64,17 +56,10 @@ Prism.languages.svelte = Prism.languages.extend('markup', {
 			},
 		},
 	},
-	'sv-expr': {
-		pattern: /\{[^]*?\}/,
+	'language-javascript': {
+		pattern: /\{(?:(?:\{(?:(?:\{(?:[^{}])*\})|(?:[^{}]))*\})|(?:[^{}]))*\}/,
 		lookbehind: true,
-		inside: {
-			punctuation: /{|}/,
-			'js-expr': {
-				pattern: /[^]*/,
-				lookbehind: true,
-				inside: Prism.languages['javascript'],
-			},
-		},
+		inside: Prism.languages['javascript'],
 	},
 });
 
