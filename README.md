@@ -10,7 +10,7 @@ npm i prism-svelte # or yarn add prism-svelte
 
 ## Usage
 
-Import PrismJS then import `prism-svelte` and it should work:
+Import `prismjs` then import `prism-svelte` (the order is very important) and it should work:
 
 ```js
 import Prism from 'prismjs';
@@ -20,6 +20,7 @@ const source = `
 <script>
   let count = 0;
 </script>
+
 <button on:click={ () => count++ }>Hello</button>
 
 <h1>{ count }</h1>
@@ -31,7 +32,7 @@ const source = `
 </ul>
 `;
 
-Prism.highlight(source, Prism.languages.svelte, 'svelte');
+const highlighted = Prism.highlight(source, Prism.languages.svelte, 'svelte');
 ```
 
 [prismjs]: https://prismjs.com/
