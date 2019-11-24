@@ -23,6 +23,16 @@ Prism.languages.svelte = Prism.languages.extend('markup', {
 					namespace: /^[^\s>\/:]+:/,
 				},
 			},
+			prop: {
+				pattern: /{[\s\S]*?}/,
+				inside: {
+					punctuation: /{|}/,
+					'js-expr': {
+						pattern: /[\s\S]*/,
+						inside: Prism.languages['javascript'],
+					},
+				},
+			},
 			'attr-value': {
 				pattern: /=\s*(?:"[^"]*"|'[^']*'|{[^"]*?}|[^\s'">=]+)/i,
 				inside: {
