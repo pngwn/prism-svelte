@@ -13,7 +13,7 @@ Prism.languages.svelte = Prism.languages.extend('markup', {
 		},
 	},
 	tag: {
-		pattern: /<\/?(?!\d)[^\s>\/=$<%]+(?:\s(?:\s*[^\s>\/=]+(?:\s*=\s*(?:"[^"]*"|'[^']*'|[^\s'">=]+(?=[\s>]))|(?=[\s/>])))+)?\s*\/?>/i,
+		pattern: /<\/?(?!\d)[^\s>\/=$<%]+(?:\s(?:\s*[^\s>\/=]+(?:\s*=\s*(?:(?:"[^"]*"|'[^']*'|[^\s'">=]+(?=[\s>]))|(?:"[^"]*"|'[^']*'|{[^'"]+?}(?=[\s/>])))|(?=[\s/>])))+)?\s*\/?>/i,
 		greedy: true,
 		inside: {
 			tag: {
@@ -24,7 +24,7 @@ Prism.languages.svelte = Prism.languages.extend('markup', {
 				},
 			},
 			'attr-value': {
-				pattern: /=\s*(?:"[^"]*"|'[^']*'|[^\s'">=]+)/i,
+				pattern: /=\s*(?:"[^"]*"|'[^']*'|{[^"]*?}|[^\s'">=]+)/i,
 				inside: {
 					punctuation: [
 						/^=/,
