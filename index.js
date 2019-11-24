@@ -1,15 +1,41 @@
-const blocks = '(if|else if|await|then|catch|each)';
+const blocks = '(if|else if|await|then|catch|each|html|debug)';
 
 Prism.languages.svelte = Prism.languages.extend('markup', {
+	each: {
+		pattern: new RegExp(
+			'{#each' + '(?:(?:\\{(?:(?:\\{(?:[^{}])*\\})|(?:[^{}]))*\\})|(?:[^{}]))*}'
+		),
+		inside: {
+			'language-javascript': [
+				{
+					pattern: /(as[\s\S]*)\([\s\S]*\)(?=\s*\})/,
+					lookbehind: true,
+					inside: Prism.languages['javascript'],
+				},
+				{
+					pattern: /(as[\s]*)[\s\S]*(?=\s*)/,
+					lookbehind: true,
+					inside: Prism.languages['javascript'],
+				},
+				{
+					pattern: /(#each[\s]*)[\s\S]*(?=as)/,
+					lookbehind: true,
+					inside: Prism.languages['javascript'],
+				},
+			],
+			keyword: /#each|as/,
+			puntuation: /{|}/,
+		},
+	},
 	block: {
 		pattern: new RegExp(
-			'{[#:/]' +
+			'{[#:/@]' +
 				blocks +
 				'(?:(?:\\{(?:(?:\\{(?:[^{}])*\\})|(?:[^{}]))*\\})|(?:[^{}]))*}'
 		),
 		inside: {
 			punctuation: /^{|}$/,
-			keyword: [new RegExp('[#:/]' + blocks), /as/, /then/],
+			keyword: [new RegExp('[#:/@]' + blocks), /as/, /then/],
 			'language-javascript': {
 				pattern: /[\s\S]*/,
 				inside: Prism.languages['javascript'],
