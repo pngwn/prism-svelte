@@ -1,6 +1,6 @@
 {
 	"name": "prism-svelte",
-	"version": "0.4.1",
+	"version": "0.4.2",
 	"description": "Svelte language extension for prismjs",
 	"main": "index.js",
 	"author": "",
