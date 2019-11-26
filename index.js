@@ -29,13 +29,13 @@ Prism.languages.svelte = Prism.languages.extend('markup', {
 	},
 	block: {
 		pattern: new RegExp(
-			'{[#:/@]' +
+			'{[#:/@]/s' +
 				blocks +
 				'(?:(?:\\{(?:(?:\\{(?:[^{}])*\\})|(?:[^{}]))*\\})|(?:[^{}]))*}'
 		),
 		inside: {
 			punctuation: /^{|}$/,
-			keyword: [new RegExp('[#:/@]' + blocks), /as/, /then/],
+			keyword: [new RegExp('[#:/@]' + blocks + ' '), /as/, /then/],
 			'language-javascript': {
 				pattern: /[\s\S]*/,
 				inside: Prism.languages['javascript'],
