@@ -3,7 +3,8 @@ const blocks = '(if|else if|await|then|catch|each|html|debug)';
 Prism.languages.svelte = Prism.languages.extend('markup', {
 	each: {
 		pattern: new RegExp(
-			'{#each' + '(?:(?:\\{(?:(?:\\{(?:[^{}])*\\})|(?:[^{}]))*\\})|(?:[^{}]))*}'
+			'{[#/]each' +
+				'(?:(?:\\{(?:(?:\\{(?:[^{}])*\\})|(?:[^{}]))*\\})|(?:[^{}]))*}'
 		),
 		inside: {
 			'language-javascript': [
@@ -23,7 +24,7 @@ Prism.languages.svelte = Prism.languages.extend('markup', {
 					inside: Prism.languages['javascript'],
 				},
 			],
-			keyword: /#each|as/,
+			keyword: /[#/]each|as/,
 			punctuation: /{|}/,
 		},
 	},
