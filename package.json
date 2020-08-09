@@ -3,7 +3,7 @@
 	"version": "0.4.6",
 	"description": "Svelte language extension for prismjs",
 	"main": "index.js",
-	"author": "",
+	"author": "pngwn <hello@pngwn.io>",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/pngwn/prism-svelte.git"
