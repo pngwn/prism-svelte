@@ -2,7 +2,8 @@
 	"name": "prism-svelte",
 	"version": "0.4.7",
 	"description": "Svelte language extension for prismjs",
-	"main": "index.js",
+	"type": "module",
+  "main": "index.js",
 	"author": "pngwn <hello@pngwn.io>",
 	"repository": {
 		"type": "git",
