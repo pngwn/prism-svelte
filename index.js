@@ -30,7 +30,7 @@ Prism.languages.svelte = Prism.languages.extend('markup', {
 	},
 	block: {
 		pattern: new RegExp(
-			'{[#:/@]/s' +
+			'{[#:/@]' +
 				blocks +
 				'(?:(?:\\{(?:(?:\\{(?:[^{}])*\\})|(?:[^{}]))*\\})|(?:[^{}]))*}'
 		),
