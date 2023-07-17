@@ -3,7 +3,13 @@
 	"version": "0.5.0",
 	"description": "Svelte language extension for prismjs",
 	"type": "module",
-	"main": "index.js",
+	"module": "index.js",
+	"exports": {
+		".": {
+			"import": "./index.js"
+		},
+		"./package.json": "./package.json"
+	},
 	"author": "pngwn <hello@pngwn.io>",
 	"repository": {
 		"type": "git",
